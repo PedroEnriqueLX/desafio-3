@@ -27,30 +27,121 @@ color: black;
 }
 
 /* Media Queries para melhorar a responsividade da página */
-@media (max-width: 768px) {
+@media (max-width: 820px) {
     .centro__imagem {
-        position: relative; /* Remove o posicionamento fixo */
-        width: 100%; /* Ocupa toda a largura */
-        height: auto; /* Ajusta a altura automaticamente */
-        padding: 2rem 1rem; /* Reduz o padding */
-        gap: 2rem; /* Reduz o espaçamento entre elementos */
+        display: none !important; /* Garante que a seção seja ocultada */
+    }
+
+    .header__mobile {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 150px; /* Altura quadrada */
+        background-color: #032df3;
+    }
+
+    .header__mobile img {
+        max-width: 80%; /* Ajusta o tamanho da imagem */
+        height: auto;
     }
 
     .formulario {
-        margin-right: 5%;
+        margin: 5%;
         flex-direction: column;
         align-items: center;
+        gap: 20px;
+    }
+
+    .formulario__dados {
+        width: 100%; /* Ajusta a largura para ocupar toda a tela */
+    }
+
+    input, select, .arquivo__caixa {
+        width: 100%; /* Ajusta os inputs para ocupar toda a largura */
+    }
+
+    .formulario__botoes {
+        flex-direction: column; /* Empilha os botões */
+        gap: 10px;
+        width: 100%;
+    }
+}
+
+@media (max-width: 560px) {
+    .header__mobile {
+        width: 100%; /* Garante que a div ocupe toda a largura da tela */
+        margin: 0; /* Remove margens */
+        padding: 0; /* Remove padding */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 120px; /* Ajuste a altura conforme necessário */
+        background-color: #032df3; /* Mantém o fundo */
+    }
+
+    .header__mobile img {
+        max-width: 80%; /* Ajusta o tamanho da imagem */
+        height: auto; /* Mantém a proporção */
     }
 }
 
 @media (max-width: 480px) {
+    .header__mobile {
+        height: 120px; /* Reduz a altura para dispositivos menores */
+    }
+
+    .header__mobile img {
+        max-width: 70%; /* Ajusta o tamanho da imagem */
+    }
+
+    .formulario {
+        margin: 2%;
+        gap: 15px;
+    }
+
+    .formulario__dados {
+        padding: 1rem;
+    }
+
+    input, select, .arquivo__caixa {
+        width: 100%; /* Garante que os inputs ocupem toda a largura */
+    }
+
     .centro__imagem {
-        padding: 1rem; /* Reduz ainda mais o padding */
-        gap: 1rem; /* Reduz o espaçamento entre elementos */
+        position: relative; /* Remove o posicionamento fixo */
+        width: 100%; /* Ajusta a largura para ocupar toda a tela */
+        height: auto; /* Ajusta a altura automaticamente */
+        padding: 1rem; /* Adiciona espaçamento interno */
+        background-color: #072ff3;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem; /* Reduz o espaçamento entre os elementos */
     }
 
     .centro__imagem img {
-        max-width: 90%; /* Reduz a largura máxima da imagem */
+        max-width: 70%; /* Ajusta o tamanho da imagem para caber melhor */
+        height: auto; /* Mantém a proporção */
+    }
+}
+
+@media (max-width: 320px) {
+    .header__mobile {
+        width: 100%; /* Garante que a div ocupe toda a largura da tela */
+        margin: 0; /* Remove margens */
+        padding: 0; /* Remove padding */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 120px; /* Ajuste a altura conforme necessário */
+        background-color: #032df3;
+    }
+
+    .header__mobile img {
+        max-width: 80%; /* Ajusta o tamanho da imagem */
+        height: auto; /* Mantém a proporção */
     }
 }
 
@@ -489,7 +580,7 @@ input:focus {
 }
 
 .centro__imagem img {
-    max-width: 100%; /* Garante que a imagem não ultrapasse o contêiner */
+    max-width: 100%; /* Garante que a imagem não ultrapasse o container */
     height: auto; /* Mantém a proporção da imagem */
 }
 
