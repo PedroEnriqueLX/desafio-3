@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css"/>
+    <link rel="icon" href="../assets/favicon.ico" type="image/x-icon" />
+    <title>Trilhas - Inova Maranhão</title>
+</head>
+<body>
+    <header></header>
+    
+     <main class="formulario">
+             <section class="formulario__dados">
+                <div class="link__voltar" >
+                <a href="../index.html">
+                <img src="../assets/arrow-left-02.svg"alt="seta para esquerda - voltar para o inicio">
+                <a>Voltar</a>
+                </div>
+                
+                <h1 class="formulario__dados__titulo__destaque"> Bem-vindo(a) ao formulário de inscrição do programa <strong class="titulo__destaque"> Trilhas - Inova Maranhão</strong></h1>
+                    <p class="formulario__dados__texto">Preencha todos os dados abaixo para fazer sua inscrição!</p>
+                        
+                        <h3 class="formulario__dados__titulo">Informações do participante</h3>
+                        <h4 class="formulario__dados__subtitulo">Nome completo</h4>
+                        <input type="texto" placeholder="Digite seu nome">
+                        <h4 class="formulario__dados__subtitulo">Data de nascimento</h4>
+                        <input type="texto" placeholder="dd/mm/aaaa">
+                        <h4 class="formulario__dados__subtitulo">CPF</h4>
+                        <input type="texto" placeholder="Digite seu CPF">
+                        <h4 class="formulario__dados__subtitulo">Sexo</h4>
+                
+                            <select name="opcoes" id="opcoes">
+                            <option value="opcao1">Feminino</option>
+                            <option value="opcao2">Masculino</option>
+                            <option value="opcao3">Outros</option>
+                    
+                            </select>
+                        
+                        <h4 class="formulario__dados__subtitulo">E-mail</h4>
+                        <input type="texto" placeholder="Digite seu e-mail">
+                        <h4 class="formulario__dados__subtitulo">Telefone</h4>
+                        <input type="texto" placeholder="(00)00000-0000">
+            
+                        <h4 class="formulario__dados__subtitulo">Documento de identidade</h4>
+                        <div class="arquivo__caixa">
+                        <img src="../assets/cloud-upload.svg" alt="icone - nuvem/carregamento de arquivo"/>
+                        <h4 class="texto__arquivo">Arraste ou clique aqui para selecionar</h4>
+                        <h4 class="texto__arquivo">o arquivo. Documento PDF, máximo 2MB.</h4>
+                        
+                        </div>
+
+                
+                        <h3 class="formulario__dados__titulo">Endereço residencial</h3>
+                        <h4 class="formulario__dados__subtitulo">CEP</h4>
+                        <input type="texto" placeholder="00000-000">
+                        <h4 class="formulario__dados__subtitulo">Endereço</h4>
+                        <input type="texto" placeholder="Digite seu endereço">
+
+                        <section class="formulario__residencia">
+                            <div class="bairro">
+                                <h4 class="formulario__dados__subtitulo">Bairro</h4>
+                                <input type="texto" placeholder="Digite seu bairro">
+                                </div>
+                                
+                            <div class="numero">      
+                            <h4 class="formulario__dados__subtitulo">Nº</h4>
+                            <input type="texto" placeholder="00">
+                            </div>
+                            
+                        </section>
+                            
+                        <h4 class="formulario__dados__subtitulo">Complemento</h4>
+                        <input type="texto" placeholder="Apartamente, bloco, casa, avenida, etc.">
+                        
+                        <section class="formulario__residencia">
+                        <div class="cidade">
+                        <h4 class="formulario__dados__subtitulo">Cidade</h4>
+                        <input type="texto" placeholder="Digite o nome de sua cidade">
+                        </div>
+
+                        <div class="estado">
+                        <h4 class="formulario__dados__subtitulo">UF</h4>
+                        <input type="texto" placeholder="MA*">
+                        </div>
+                        </section>
+
+
+                        <h4 class="formulario__dados__subtitulo">Comprovante de residência</h4>
+                        <div class="arquivo__caixa">
+                        <img src="../assets/cloud-upload.svg" alt="icone - nuvem/carregamento de arquivo"/>
+                        <h4 class="texto__arquivo">Arraste ou clique aqui para selecionar</h4>
+                        <h4 class="texto__arquivo">o arquivo. Documento PDF, máximo 2MB.</h4>
+                        </div>
+
+                        <h3 class="formulario__dados__titulo">Trilhas de aprendizagem</h3>
+                        <h4 class="formulario__dados__obs">Selecione apenas uma trilha!</h4>
+
+                     <section class="formulario__trilhas">
+                    
+                        <div class="trilha__option">
+                            <input type="radio" id="dados" name="curso" checked>
+                            <label for="dados">
+                                <span class="radio-circle"></span>
+                                <img src="../assets/icon-dados.svg" alt="Ícone blocos-estatisticas-ciencias de dados" class="img__icon">
+                                <h4 class="formulario__dados__subtitulo">Ciência de Dados</h4>
+                            </label>
+                        </div>
+
+                        </div>
+                            <div class="trilha__option">
+                            <input type="radio" id="design" name="curso" checked>
+                            <label for="design">
+                                <span class="radio-circle"></span>
+                                <img src="../assets/icon-ux.svg" alt="Ícone UX-Design" class="img__icon">
+                                <h4 class="formulario__dados__subtitulo">Design e Experiência</h4>
+                            </label>
+                        </div>
+
+
+                        <div class="trilha__option">
+                            <input type="radio" id="frontend" name="curso" checked>
+                            <label for="frontend">
+                                <span class="radio-circle"></span>
+                                <img src="../assets/icon-front.svg" alt="Ícone Frontend" class="img__icon">
+                                <h4 class="formulario__dados__subtitulo">Programação Front-end</h4>
+                                
+                            </label>
+                        </div>
+
+                        <div class="trilha__option">
+                            <input type="radio" id="backend" name="curso" checked>
+                            <label for="backend">
+                                <span class="radio-circle"></span>
+                                <img src="../assets/icon-back.svg" alt="Ícone Back-end" class="img__icon">
+                                <h4 class="formulario__dados__subtitulo">Programação Back-end</h4>    
+                            </label>
+
+                        </div>
+                            <div class="trilha__option">
+                            <input type="radio" id="jogos" name="curso" checked>
+                            <label for="jogos">
+                                <span class="radio-circle"></span>
+                                <img src="../assets/icon-jogo.svg" alt="Ícone controle-jogo" class="img__icon">
+                                <h4 class="formulario__dados__subtitulo">Programação de Jogos</h4>
+                            </label>
+                        </div>
+
+
+                    </section>  
+                        
+                        
+                        <div class="checkbox__container">
+                            <input type="checkbox" id="checkbox" class="checkbox">
+                            <label for="checkbox">Declaro que li e concordo com os <strong> Termos e Condições </strong>
+                            <p class="formulario__dados__texto__checkbox">e com a<strong> Política de Privacidade.</strong></p>
+                        </div>
+
+                        <div class="formulario__botoes">
+                        <button class="formulario__botoes__click1">Cancelar</button>
+                        <button class="formulario__botoes__click2">Confirmar inscrição</button>
+                        </div>
+    
+                    
+            </section>
+
+            <section class="centro__imagem">
+            <div> <img src="../assets/im1-trilhas.png" alt="Imagem ilustrativa - Homem e tecnologias"></div>
+            <div><img src="../assets/logo-trilhas.png" alt="Logo Trilhas - Inova Maranhão"/></div>
+            </section>
+        </section>
+            
+        </main>
+        <footer></footer>
+</body>
+</html>
