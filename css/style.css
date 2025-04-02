@@ -280,6 +280,16 @@ input[type="radio"] {
     display: none;
 }
 
+input[type=number]::-webkit-inner-spin-button { 
+    -webkit-appearance: none;
+    
+}
+input[type=number] { 
+   -moz-appearance: textfield;
+   appearance: textfield;
+
+}
+
 .formulario__residencia {
     display: flex;
     flex-wrap: nowrap; /* Aqui faz com que eles fiquem lado a lado */
