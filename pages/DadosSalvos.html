@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dados Salvos</title>
+    <link rel="stylesheet" href="../css/Dados.css"/>
+</head>
+<body>
+    <h3>Dados Salvos:</h3>
+    <div id="exibir-dados"></div>
+
+    <script>
+        // Recupera os dados do LocalStorage
+        const dadosSalvos = JSON.parse(localStorage.getItem('dadosFormulario'));
+
+        const exibirDadosDiv = document.querySelector('#exibir-dados');
+        if (dadosSalvos) {
+            exibirDadosDiv.innerHTML = `
+                <p><strong>Nome:</strong> ${dadosSalvos.nome}</p>
+                <p><strong>Email:</strong> ${dadosSalvos.email}</p>
+                <p><strong>Data de Nascimento:</strong> ${dadosSalvos.dataNascimento}</p>
+                <p><strong>CPF:</strong> ${dadosSalvos.cpf}</p>
+                <p><strong>Telefone:</strong> ${dadosSalvos.telefone}</p>
+                <p><strong>Sexo:</strong> ${dadosSalvos.sexo}</p>
+                <p><strong>CEP:</strong> ${dadosSalvos.cep}</p>
+                <p><strong>Endereço:</strong> ${dadosSalvos.endereco}</p>
+                <p><strong>Bairro:</strong> ${dadosSalvos.bairro}</p>
+                <p><strong>Número:</strong> ${dadosSalvos.numero}</p>
+                <p><strong>Complemento:</strong> ${dadosSalvos.complemento}</p>
+                <p><strong>Cidade:</strong> ${dadosSalvos.cidade}</p>
+                <p><strong>UF:</strong> ${dadosSalvos.uf}</p>
+                <p><strong>Trilha:</strong> ${dadosSalvos.trilha}</p>
+                <p><strong>Arquivos Anexados:</strong></p>
+                <ul>
+                    ${dadosSalvos.arquivos.map(arquivo => `<li>${arquivo}</li>`).join('')}
+                </ul>
+                <p><strong>Termos Aceitos:</strong> ${dadosSalvos.termosAceitos ? 'Sim' : 'Não'}</p>
+            `;
+        } else {
+            exibirDadosDiv.innerHTML = '<p>Nenhum dado salvo.</p>';
+        }
+    </script>
+</body>
+</html>
