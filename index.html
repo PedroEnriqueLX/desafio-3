@@ -17,12 +17,13 @@
     <p id="paragrafo">Para começar, faça seu Login:</p> 
     <div class="formulario">
       <form class="formulario-login" method="post">
-        <input type="text" placeholder="Usuário" required />
-        <input type="password" placeholder="Senha" required/>
-        <button type="button" name="envio" onclick="window.location.href='./pages/inscricao.html';">Inscrevar-se</button>
+        <input id="id-login" type="text" placeholder="ID" required />
+        <input id="senha-login" type="password" placeholder="Senha" required/>
+        <button id="botao-login" type="button" name="envio">Login</button>
+        <p class="message">Não cadastrado? <a href="./pages/inscricao.html">Inscrevase-se</a></p>
       </form>
     </div>
   </div>
-  <script src="./js/validandoCampos.js"></script>
+  <script src="./js/Login.js"></script>
   </body>
   </html>

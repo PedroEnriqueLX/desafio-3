@@ -17,7 +17,6 @@
     </div>
     
     <main class="formulario">
-        <!-- Adicionando a tag <form> -->
         <form class="envio" action="#" method="post">
             <section class="formulario__dados">
                 <div class="link__voltar">
@@ -148,6 +147,12 @@
                         </label>
                     </div>
                 </section>
+
+                <h3 class="formulario__dados__titulo">Crie um ID e Senha que serão usados no Login</h3>
+                <h4 class="formulario__dados__subtitulo">ID</h4>
+                <input id="id-login" type="text" placeholder="Insira um ID " required>
+                <h4 class="formulario__dados__subtitulo">Senha</h4>
+                <input id="senha-login" type="password" placeholder="Insira a senha criada aqui" required>
                         
                 <div class="checkbox__container">
                     <input type="checkbox" id="checkbox" class="checkbox">
@@ -155,7 +160,6 @@
                     <p class="formulario__dados__texto__checkbox">e com a<strong> Política de Privacidade.</strong></p>
                 </div>
 
-                <div id="exibir-dados"></div>
 
                 <div class="formulario__botoes">
                     <button id="salvar__Infos" class="formulario__botoes__click1" type="button">Salvar as informações preenchidas</button>

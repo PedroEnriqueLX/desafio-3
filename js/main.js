@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const campoUF = document.querySelector('#UF');
     const divEnviarDocumento = document.querySelectorAll('.arquivo__caixa');
     const botaoSalvar = document.querySelector('#salvar__Infos');
-    const exibirDadosDiv = document.querySelector('#exibir-dados');
 
     // Função para preencher o formulário com os dados salvos
     function preencherFormulario() {
@@ -33,15 +32,16 @@ document.addEventListener('DOMContentLoaded', () => {
             // Preenche o campo de seleção de sexo
             const campoSexo = document.querySelector('#opcoes');
             if (campoSexo) {
-                campoSexo.value = dadosSalvos.sexo || ''; // Define o valor salvo no campo de seleção
+                campoSexo.value = dadosSalvos.sexo || '';
             }
 
             // Seleciona a trilha salva
             OpcoesTrilhas.forEach(opcao => {
                 const textoTrilha = opcao.querySelector('h4')?.textContent || '';
-                const inputRadio = opcao.querySelector('input[type="radio"]'); // Seleciona o input do tipo radio
+                const inputRadio = opcao.querySelector('input[type="radio"]');
+
                 if (textoTrilha === dadosSalvos.trilha) {
-                    opcao.classList.add('selecionado'); // Marca a trilha como selecionada
+                    opcao.classList.add('selecionado');
                     if (inputRadio) {
                         inputRadio.checked = true; // Marca o input como "checked"
                     }
@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
         campoUF.value = campoUF.value.toUpperCase().slice(0, 2);
     });
 
-    // Adiciona funcionalidade às opções de trilhas
+    // Pegar a div da trilha selecionada
     OpcoesTrilhas.forEach(opcao => {
         opcao.addEventListener('click', () => {
             OpcoesTrilhas.forEach(op => op.classList.remove('selecionado'));
@@ -127,9 +127,8 @@ document.addEventListener('DOMContentLoaded', () => {
             Valido = false;
         } else {
             const [dia, mes, ano] = campoNascimento.value.split('/').map(Number);
-            const data = new Date(ano, mes - 1, dia); // O mês no objeto Date é baseado em zero (0 = janeiro, 11 = dezembro)
+            const data = new Date(ano, mes - 1, dia);
 
-            // Verifica se a data é válida
             if (
                 data.getDate() !== dia || 
                 data.getMonth() !== mes - 1 || 
@@ -138,7 +137,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 mostrarError(campoNascimento, 'A data de nascimento é inválida.');
                 Valido = false;
             } else {
-                // Verifica se o ano está dentro de um intervalo aceitável (ex.: maior que 1900 e menor que o ano atual)
                 const anoAtual = new Date().getFullYear();
                 if (ano < 1900 || ano > anoAtual) {
                     mostrarError(campoNascimento, `O ano de nascimento deve estar entre 1900 e ${anoAtual}.`);
@@ -159,23 +157,22 @@ document.addEventListener('DOMContentLoaded', () => {
             Valido = false;
         }
 
-         // Verifica se os arquivos foram selecionados
-         let arquivosValidos = true;
-         divEnviarDocumento.forEach((div, index) => {
-             const inputFile = div.querySelector('input[type="file"]');
-             if (!inputFile?.files[0]) {
-                 arquivosValidos = false;
-                 Valido = false;
-                 const mensagem = index === 0
-                     ? 'Por favor, envie o Documento de Identidade.'
-                     : 'Por favor, envie o Comprovante de Residência.';
-                 alert(mensagem);
-             }
-         });
- 
-         if (!arquivosValidos) {
-             return; // Interrompe o processo se os arquivos não forem válidos
-         }
+        let arquivosValidos = true;
+        divEnviarDocumento.forEach((div, index) => {
+            const inputFile = div.querySelector('input[type="file"]');
+            if (!inputFile?.files[0]) {
+                arquivosValidos = false;
+                Valido = false;
+                const mensagem = index === 0
+                    ? 'Por favor, envie o Documento de Identidade.'
+                    : 'Por favor, envie o Comprovante de Residência.';
+                alert(mensagem);
+            }
+        });
+
+        if (!arquivosValidos) {
+            return;
+        }
 
         const trilhaSelecionada = Array.from(trilhaRadios).some((radio) => radio.checked);
         if (!trilhaSelecionada) {
@@ -190,6 +187,43 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         if (Valido) {
+            // Salva os dados no LocalStorage
+            const trilhaSelecionada = Array.from(OpcoesTrilhas).find(opcao => opcao.classList.contains('selecionado'));
+            const textoTrilha = trilhaSelecionada?.querySelector('h4')?.textContent || 'Nenhuma trilha selecionada';
+
+            const sexoSelecionado = document.querySelector('#opcoes').value;
+
+            const arquivosAnexados = Array.from(divEnviarDocumento).map((div, index) => {
+                const inputFile = div.querySelector('input[type="file"]');
+                const nomeArquivo = inputFile?.files[0]?.name || 'Nenhum arquivo selecionado';
+                return index === 0
+                    ? `Documento de identidade: ${nomeArquivo}`
+                    : `Comprovante de residência: ${nomeArquivo}`;
+            });
+
+            const dadosFormulario = {
+                nome: document.querySelector('#nome')?.value || '',
+                email: campoEmail.value,
+                dataNascimento: campoNascimento.value,
+                cpf: campoCPF.value,
+                telefone: campoTelefone.value,
+                sexo: sexoSelecionado,
+                cep: document.querySelector('#cep')?.value || '',
+                endereco: document.querySelector('#endereço')?.value || '',
+                bairro: document.querySelector('#bairro')?.value || '',
+                numero: document.querySelector('#numero-da-casa')?.value || '',
+                complemento: document.querySelector('#complemento')?.value || '',
+                cidade: document.querySelector('#cidade')?.value || '',
+                uf: campoUF.value,
+                trilha: textoTrilha,
+                arquivos: arquivosAnexados,
+                termosAceitos: checkbox.checked,
+                idLogin: document.querySelector('#id-login')?.value || '', 
+                senhaLogin: document.querySelector('#senha-login')?.value || ''
+            };
+
+            localStorage.setItem('dadosFormulario', JSON.stringify(dadosFormulario));
+
             alert('Inscrição realizada com sucesso!');
         }
     });
@@ -258,7 +292,9 @@ document.addEventListener('DOMContentLoaded', () => {
             uf: campoUF.value,
             trilha: textoTrilha,
             arquivos: arquivosAnexados,
-            termosAceitos: checkbox.checked
+            termosAceitos: checkbox.checked,
+            idLogin: document.querySelector('#id-login')?.value || '', 
+            senhaLogin: document.querySelector('#senha-login')?.value || ''
         };
 
         // Armazena os dados no LocalStorage
