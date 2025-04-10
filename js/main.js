@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
     //const botaoSalvar = document.querySelector('#salvar__Infos');
     const checkboxSalvar = document.querySelector('#salvar__Infos');
 
-
     // Função para preencher o formulário com os dados salvos
     function preencherFormulario() {
         const dadosSalvos = JSON.parse(localStorage.getItem('dadosFormulario'));
@@ -95,37 +94,21 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Função para exibir mensagem de erro
-    function mostrarError(campo, messagem) {
-        let errorElemento = campo.parentNode.querySelector('.error-messagem');
-        if (errorElemento) {
-            errorElemento.remove();
-        }
-        errorElemento = alert(messagem);
-    }
-
-    // Função para limpar todas as mensagens de erro
-    function limparErrors() {
-        const errorElementos = document.querySelectorAll('.error-messagem');
-        errorElementos.forEach((error) => error.remove());
-    }
-
     // Função para validar o formulário
     formulario.addEventListener('submit', (evento) => {
         evento.preventDefault(); // Impede o envio do formulário
-        limparErrors();
 
         let Valido = true;
 
         const emailFormato = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailFormato.test(campoEmail.value)) {
-            mostrarError(campoEmail, 'Por favor, insira um email válido.');
+            alert('Por favor, insira um email válido.');
             Valido = false;
         }
 
         const dataFormato = /^\d{2}\/\d{2}\/\d{4}$/;
         if (!dataFormato.test(campoNascimento.value)) {
-            mostrarError(campoNascimento, 'A data de nascimento é inválida, deve estar no formato DD/MM/AAAA.');
+            alert('A data de nascimento é inválida, deve estar no formato DD/MM/AAAA.');
             Valido = false;
         } else {
             const [dia, mes, ano] = campoNascimento.value.split('/').map(Number);
@@ -136,12 +119,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 data.getMonth() !== mes - 1 || 
                 data.getFullYear() !== ano
             ) {
-                mostrarError(campoNascimento, 'A data de nascimento é inválida.');
+                alert('A data de nascimento é inválida.');
                 Valido = false;
             } else {
                 const anoAtual = new Date().getFullYear();
                 if (ano < 1900 || ano > anoAtual) {
-                    mostrarError(campoNascimento, `O ano de nascimento deve estar entre 1900 e ${anoAtual}.`);
+                    alert(`O ano de nascimento deve estar entre 1900 e ${anoAtual}.`);
                     Valido = false;
                 }
             }
@@ -149,13 +132,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const cpfFormato = /^\d{11}$/;
         if (!cpfFormato.test(campoCPF.value)) {
-            mostrarError(campoCPF, 'O CPF deve conter exatamente 11 dígitos.');
+            alert('O CPF deve conter exatamente 11 dígitos.');
             Valido = false;
         }
 
         const celularFormato = /^\d{10,11}$/;
         if (!celularFormato.test(campoTelefone.value)) {
-            mostrarError(campoTelefone, 'O telefone deve conter 10 ou 11 dígitos.');
+            alert('O telefone deve conter 10 ou 11 dígitos.');
             Valido = false;
         }
 
@@ -179,12 +162,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const trilhaSelecionada = Array.from(trilhaRadios).some((radio) => radio.checked);
         if (!trilhaSelecionada) {
             const trilhaContainer = trilhaRadios[0].closest('.formulario__trilhas');
-            mostrarError(trilhaContainer, 'Você deve selecionar uma trilha.');
+            alert('Você deve selecionar uma trilha.');
             Valido = false;
         }
 
         if (!checkbox.checked) {
-            mostrarError(checkbox, 'Você deve aceitar os Termos e Condições.');
+            alert('Você deve aceitar os Termos e Condições.');
             Valido = false;
         }
 
@@ -232,7 +215,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Função para salvar os dados no LocalStorage
     //botaoSalvar.addEventListener('click', () => {
-        checkboxSalvar.addEventListener('click', () => {
+        checkboxSalvar.addEventListener('change', () => {
         if (!document.querySelector('#nome').value.trim() ||
             !campoEmail.value.trim() ||
             !campoNascimento.value.trim() ||
@@ -302,11 +285,41 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Armazena os dados no LocalStorage
         localStorage.setItem('dadosFormulario', JSON.stringify(dadosFormulario));
-
-        // Redireciona para a página de exibição dos dados
-        window.location.href = './dadosSalvos.html';
     });
 
     // Preenche o formulário com os dados salvos ao carregar a página
     preencherFormulario();
+});
+
+checkboxSalvar.addEventListener('change', () => {
+    if (!document.querySelector('#nome').value.trim() ||
+        !campoEmail.value.trim() ||
+        !campoNascimento.value.trim() ||
+        !campoCPF.value.trim() ||
+        !campoTelefone.value.trim() ||
+        !document.querySelector('#cep').value.trim() ||
+        !document.querySelector('#endereço').value.trim() ||
+        !document.querySelector('#cidade').value.trim() ||
+        !campoUF.value.trim()) {
+        alert('Por favor, preencha todos os campos antes de salvar.');
+        return; 
+    }
+
+    // Verifica se os arquivos foram selecionados
+    let arquivosValidos = true;
+    divEnviarDocumento.forEach((div, index) => {
+        const inputFile = div.querySelector('input[type="file"]');
+        if (!inputFile?.files[0]) {
+            arquivosValidos = false;
+            const mensagem = index === 0
+                ? 'Por favor, envie o Documento de Identidade.'
+                : 'Por favor, envie o Comprovante de Residência.';
+            alert(mensagem);
+            return; 
+        }
+    });
+
+    if (!arquivosValidos) {
+        return; 
+    }
 });
