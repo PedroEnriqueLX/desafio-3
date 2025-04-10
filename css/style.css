@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;1,400&display=swap');
 
-
 *{
     margin: 0;
     padding: 0;
@@ -15,7 +14,7 @@ color: black;
 }
 
 .formulario {
-    margin: 10%;
+    margin: 8.5%;
     margin-top: 6%;
     padding-bottom: 5%;
     display: flex;
@@ -143,6 +142,7 @@ color: black;
         max-width: 80%; /* Ajusta o tamanho da imagem */
         height: auto; /* Mantém a proporção */
     }
+
 }
 
 .link__voltar {
@@ -153,8 +153,8 @@ color: black;
     color: #57534e;
     display: flex;
     align-items: center;
-    gap: 8px;
-    
+    gap: 6px;
+    line-height: 0;
     
 }
 
@@ -257,9 +257,9 @@ select {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
-    background-image: url('../assets/arrow-down-01.svg'); /* Substitua pela sua seta */
+    background-image: url('../assets/arrow-down-01.svg');
     background-repeat: no-repeat;
-    background-position: right 10px center; /* Move a seta */
+    background-position: right 10px center; /* Para conseguir mover a seta */
     background-size: 15px;
     padding-right: 40px; /* Afasta o texto da seta */
 
@@ -470,8 +470,7 @@ input[type="radio"]:checked + label .radio-circle {
     border-color: #fa5521;
 }
 
-.checkbox__container{
-    font-size: 16px;
+.checkbox__container__salvar{
     font-family: "Poppins", sans-serif;
     font-weight: 400;
     font-style: normal;
@@ -480,7 +479,22 @@ input[type="radio"]:checked + label .radio-circle {
     align-items: center;
     justify-content: flex-start;
     margin-top: 20px;
+    flex-direction:row;
+
+
+}
+
+.checkbox__container{
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 5px;
     margin-bottom: 25px;
+    flex-direction:row;
 
 }
 
@@ -491,17 +505,17 @@ input[type="radio"]:checked + label .radio-circle {
 }
 
 label {
-    font-size: 15.5px;
+    font-size: 14px;
     color: #57534e;
     cursor: pointer;
 }
 
-.formulario__dados__texto__checkbox{
+/*.formulario__dados__texto__checkbox{
     font-size: 15.5px;
     color: #57534e;
     cursor: pointer;
 }
-
+*/
 
 input {
     font-size: 12px;
@@ -529,7 +543,7 @@ input:focus {
 .formulario__botoes {
     display:flex;
     justify-content: flex-end;
-    gap: 10px;
+    gap: 15px;
     width: 100%; 
     max-width: 468px; 
     align-self: flex-start;
@@ -577,20 +591,19 @@ input:focus {
     position: fixed; /* Mantém a imagem fixa */
     top: 0;
     right: 0;
-    width: 48%; /* Define uma largura proporcional */
-    height: 100vh; /* Ocupa toda a altura da tela */
+    width: 47%;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: #072ff3;
     padding: 2rem;
-    gap: 5rem;
+    gap: 4rem;
     z-index: 10;
 }
 
 .centro__imagem img {
-    max-width: 100%; /* Garante que a imagem não ultrapasse o container */
-    height: auto; /* Mantém a proporção da imagem */
+    max-width: 100%; /* Para garantir que a imagem não passe o container */
+    height: auto; /* Mantém o tamanho da imagem */
 }
-

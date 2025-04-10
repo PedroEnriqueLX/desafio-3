@@ -9,7 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const campoTelefone = document.querySelector('#telefone');
     const campoUF = document.querySelector('#UF');
     const divEnviarDocumento = document.querySelectorAll('.arquivo__caixa');
-    const botaoSalvar = document.querySelector('#salvar__Infos');
+    //const botaoSalvar = document.querySelector('#salvar__Infos');
+    const checkboxSalvar = document.querySelector('#salvar__Infos');
+
 
     // Função para preencher o formulário com os dados salvos
     function preencherFormulario() {
@@ -229,7 +231,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Função para salvar os dados no LocalStorage
-    botaoSalvar.addEventListener('click', () => {
+    //botaoSalvar.addEventListener('click', () => {
+        checkboxSalvar.addEventListener('click', () => {
         if (!document.querySelector('#nome').value.trim() ||
             !campoEmail.value.trim() ||
             !campoNascimento.value.trim() ||

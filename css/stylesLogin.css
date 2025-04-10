@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:ital,wght@0,400;0,500;0,600;1,400&display=swap');
 
 body {
   height: 100vh;
@@ -8,6 +8,20 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+
+}
+
+.titulo_ola {
+  font-family: "Pacifico", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 50px;
+  color:#FFFFFF;
+  margin-top: 4px;
+  margin-bottom: 0;
+  line-height: 1.2;
+  
 }
 
 .login-pagina {
@@ -28,7 +42,7 @@ body {
   max-width: 400px;
   background: #FFFFFF;
   padding: 30px;
-  border-radius: 15px;
+  border-radius: 17px;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
   text-align: center;
 }
@@ -39,7 +53,7 @@ body {
     background: #4440401b;
     width: 100%;
     border: 0;
-    border-radius: 7px;
+    border-radius: 10px;
     margin: 0 0 15px;
     padding: 15px;
     box-sizing: border-box;
@@ -55,7 +69,7 @@ body {
     border: 0;
     padding: 15px;
     color: #FFFFFF;
-    border-radius: 7px;
+    border-radius: 10px;
     font-size: 14px;
     -webkit-transition: all 0.3 ease;
     transition: all 0.3 ease;
@@ -68,13 +82,14 @@ a {
 }
 
 .formulario button:hover,.form button:active,.form button:focus {
-    background: #f19204;
+    background: #fa5521;
 }
 
 #logo {
   display: flex;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-top: 60px;
+
 }
 
 #titulo_login {
@@ -85,7 +100,8 @@ a {
 }
 
 strong {
-    color: #fa5521;
+  color: #ff3b00;
+    
 }
 
 #paragrafo {
@@ -93,7 +109,7 @@ strong {
     margin-bottom: 20px;
 }
 
-/* Media queries para responsividade */
+/* Media queries para uma melhor responsividade */
 @media (max-width: 768px) {
   .login-pagina {
       padding: 10px;
@@ -101,6 +117,7 @@ strong {
 
   #titulo_login {
       font-size: 1.5rem;
+      margin: 0;
   }
 
   #paragrafo {
@@ -124,4 +141,30 @@ strong {
   .formulario {
       padding: 20px;
   }
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  background-color:#001370;
+  color: #ffffff;
+  text-align: center;
+  padding: 3px 0;
+  width: 100%;
+  position:fixed;
+  bottom: 0;
+  left:0;
+  font-size: 13px;
+}
+
+.social-links {
+  margin-top: 8px;
+ 
+}
+
+.social-links .social-icon {
+  width: 25px;
+  height: 25px;
 }

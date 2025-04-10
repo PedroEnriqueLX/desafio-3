@@ -26,7 +26,7 @@
                     </a>
                 </div>
                 
-                <h1 class="formulario__dados__titulo__destaque"> Bem-vindo(a) ao formulário de inscrição do programa <strong class="titulo__destaque"> Trilhas - Inova Maranhão</strong></h1>
+                <h1 class="formulario__dados__titulo__destaque"> Formulário de inscrição<strong class="titulo__destaque"> Trilhas - Inova Maranhão</strong></h1>
                 <p class="formulario__dados__texto">Preencha todos os dados abaixo para fazer sua inscrição!</p>
                         
                 <h3 class="formulario__dados__titulo">Informações do participante</h3>
@@ -149,31 +149,34 @@
                 </section>
 
                 <h3 class="formulario__dados__titulo">Crie um ID e Senha que serão usados no Login</h3>
-                <h4 class="formulario__dados__subtitulo">ID</h4>
+                <h4 class="formulario__dados__subtitulo">ID de usuário</h4>
                 <input id="id-login" type="text" placeholder="Insira um ID " required>
                 <h4 class="formulario__dados__subtitulo">Senha</h4>
-                <input id="senha-login" type="password" placeholder="Insira a senha criada aqui" required>
+                <input id="senha-login" type="password" placeholder="Insira a senha criada" required>
                         
+                <div class="checkbox__container__salvar">
+                    <input type="checkbox" id="checkbox" class="checkbox">
+                    <label for="salvar__Infos">Salvar campos com as informações preenchidas.</label>
+                </div>
+
                 <div class="checkbox__container">
                     <input type="checkbox" id="checkbox" class="checkbox">
                     <label for="checkbox">Declaro que li e concordo com os <strong> Termos e Condições </strong>
                     <p class="formulario__dados__texto__checkbox">e com a<strong> Política de Privacidade.</strong></p>
                 </div>
 
-
                 <div class="formulario__botoes">
-                    <button id="salvar__Infos" class="formulario__botoes__click1" type="button">Salvar as informações preenchidas</button>
                     <button class="formulario__botoes__click1" type="button">Cancelar</button>
                     <button class="formulario__botoes__click2" type="submit">Confirmar inscrição</button>
                 </div>
+
             </section>
         </form>
         <section class="centro__imagem">
-            <div> <img src="../assets/im1-trilhas.png" alt="Imagem ilustrativa - Homem e tecnologias"></div>
+            <div> <img src="../assets/im2-trilhas.png" alt="Imagem ilustrativa - Homem e tecnologias"></div>
             <div><img src="../assets/logo-trilhas.png" alt="Logo Trilhas - Inova Maranhão"></div>
         </section>
     </main>
-    <footer></footer>
     <script src="../js/main.js"></script>
 </body>
 </html>

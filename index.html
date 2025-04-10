@@ -4,6 +4,7 @@
       <meta charset="UTF-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="icon" href="./assets/favicon.ico" type="image/x-icon" />
       <title></title>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
           integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
@@ -12,18 +13,36 @@
   </head>
   <body>
   <div class="login-pagina">
-    <div id="logo"><img src="./assets/logo-trilhas.png" alt="Logo Trilhas - Inova Maranhão"/></div>
-    <h1 id="titulo_login">Bem vindo ao <strong> Trilhas Inova</strong></h1>
+    <h1 class="titulo_ola">Olá,</h1>
+    <h1 id="titulo_login">bem-vindo ao <strong>Trilhas Inova</strong></h1>
     <p id="paragrafo">Para começar, faça seu Login:</p> 
     <div class="formulario">
       <form class="formulario-login" method="post">
-        <input id="id-login" type="text" placeholder="ID" required />
+        <input id="id-login" type="text" placeholder="ID de usuário" required />
         <input id="senha-login" type="password" placeholder="Senha" required/>
         <button id="botao-login" type="button" name="envio">Login</button>
-        <p class="message">Não cadastrado? <a href="./pages/inscricao.html">Inscrevase-se</a></p>
+        <p class="message">Não é cadastrado? <a href="./pages/inscricao.html">Inscreva-se</a></p>
       </form>
     </div>
+    <div id="logo"><img src="./assets/logo-trilhas.png" alt="Logo Trilhas - Inova Maranhão"/></div>
   </div>
+
+  <footer class="footer">
+    <p>© 2025 Trilhas - Inova Maranhão. Para ficar por dentro das atividades do programa, acesse nossas redes sociais!</p>
+    <div class="social-links">
+        <a href="https://www.instagram.com/inovamaranhao/" target="_blank" title="Instagram">
+            <img src="./assets/instagram.png" alt="Instagram" class="social-icon">
+        </a>
+        <a href="https://www.linkedin.com/company/inovamaranhao" target="_blank" title="linkedin">
+          <img src="./assets/linkedin.png" alt="linkedin" class="social-icon">
+      </a>
+      <a href="https://www.inova.ma.gov.br/" target="_blank" title="site">
+        <img src="./assets/site.png" alt="site do Trilhas-Inova Maranhão" class="social-icon">
+    </a>
+  </div>
+    </div>
+  </footer>
+
   <script src="./js/Login.js"></script>
   </body>
   </html>
